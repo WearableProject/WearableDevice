@@ -6,11 +6,11 @@
 
 class Pearl: public FastLED {
 private:
-  const int leds = 6;
+  static const int leds = 6;
   int data_pin;
   CRGB colours[leds];
 public:
   Pearl();
-  void Change(int LED, uint_32 colour);
+  void Change(int LED, CRGB colour);
   void Update();
-}
+};
