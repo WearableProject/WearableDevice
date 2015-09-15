@@ -12,5 +12,6 @@ private:
 public:
   Pearl();
   void Change(int LED, CRGB colour);
+  void ChangeMultiple(int leds[], CRGB colour);
   void Update();
 };

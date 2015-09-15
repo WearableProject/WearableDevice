@@ -12,6 +12,14 @@ void Pearl::Change(int LED, CRGB colour)
   colours[LED] = colour;
 }
 
+void Pearl::ChangeMultiple(int leds[], CRGB colour)
+{
+  for(int i=0;i<leds.length();i++)
+  {
+    colours[leds[i]] = colour;
+  }
+}
+
 void Pearl::Update()
 {
   show();
