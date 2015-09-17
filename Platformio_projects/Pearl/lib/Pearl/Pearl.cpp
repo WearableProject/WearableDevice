@@ -23,3 +23,12 @@ void Pearl::ChangeMultiple(int leds[], CRGB colour)
     colours[leds[i]] = colour;
   }
 }
+
+void Pearl::off()
+{
+  for(int i=0;i<leds;i++)
+  {
+    colours[led[i]] = 0;
+  }
+  show();
+}
