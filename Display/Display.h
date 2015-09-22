@@ -10,10 +10,16 @@ public:
   void show(float value);
   void show(int32_t value);
   void scrollRight(char* text, int speed);
+  void scrollRightContinuous(char* text, int speed, int _seconds);
+  void scrollLeftContinuous(char* text, int speed, int _seconds);
   void scrollLeft(char* text, int speed);
   void scrollUp(char* text, int speed);
+  void scrollUpContinuous(char* text, int speed, int _seconds);
   void scrollDown(char* text, int speed);
+  void scrollDownContinuous(char* text, int speed, int _seconds);
   void scrollHorizontally(char* text, int speed);
+  void scrollHorizontallyContinuous(char* text, int speed, int _seconds);
   void scrollVertically(char* text, int speed);
+  void scrollVerticallyContinuous(char* text, int speed, int _seconds);
   char* floatToString(char* outstr, double val, byte precision, byte widthp);
 };
