@@ -22,6 +22,23 @@ void Display::scrollRight(char* text, int speed)
   }
 }
 
+void Display::scrollRightContinuous(char* text, int speed, int _seconds)
+{
+  int x = 0;
+  int screenWidth = getWidth();
+  int seconds = 0;
+  while(seconds < _seconds)
+  {
+    while(x < screenWidth)
+    {
+      showChars(text, x, 20);
+      x+= speed;
+    }
+    x = -screenWidth;
+    seconds += 1;
+  }
+}
+
 void Display::scrollLeft(char* text, int speed)
 {
   int x = 0;
@@ -31,6 +48,24 @@ void Display::scrollLeft(char* text, int speed)
     showChars(text, x, 20);
     x-= speed;
   }
+}
+
+void Display::scrollLeftContinuous(char* text, int speed, int _seconds)
+{
+  int x = 0;
+  int screenWidth = getWidth();
+  int seconds = 0;
+  while(seconds < _seconds)
+  {
+    while(x > -screenWidth)
+    {
+      showChars(text, x, 20);
+      x-= speed;
+    }
+    seconds += 1;
+    x = screenWidth;
+  }
+
 }
 
 void Display::scrollHorizontally(char* text, int speed)
@@ -49,6 +84,26 @@ void Display::scrollHorizontally(char* text, int speed)
   }
 }
 
+void Display::scrollHorizontallyContinuous(char* text, int speed, int _seconds)
+{
+  int x = 0;
+  int screenWidth = getWidth();
+  int seconds = 0;
+  while(seconds < _seconds)
+  {
+    while(x < screenWidth)
+    {
+      showChars(text, x, 20);
+      x+= speed;
+    }
+    while(x > -screenWidth)
+    {
+      showChars(text,x,20);
+      x-= speed;
+    }
+  }
+}
+
 void Display::scrollUp(char* text, int speed)
 {
   int y = 0;
@@ -58,6 +113,24 @@ void Display::scrollUp(char* text, int speed)
     showChars(text, 0, y);
     y-= speed;
   }
+}
+
+void Display::scrollUpContinuous(char* text, int speed, int _seconds)
+{
+  int y = 0;
+  int screenHeight = getHeight();
+  int seconds = 0;
+  while(seconds > _seconds)
+  {
+    while(y > -screenHeight)
+    {
+      showChars(text, 0, y);
+      y-= speed;
+    }
+    seconds += 1;
+    y = screenHeight;
+  }
+
 }
 
 void Display::scrollDown(char* text, int speed)
@@ -71,6 +144,23 @@ void Display::scrollDown(char* text, int speed)
   }
 }
 
+void Display::scrollDownContinuous(char* text, int speed, int _seconds)
+{
+  int y = 0;
+  int screenHeight = getHeight();
+  int seconds = 0;
+  while(seconds < _seconds)
+  {
+    while(y < screenHeight)
+    {
+      showChars(text, 0, y);
+      y+= speed;
+    }
+    y = -screenHeight;
+    seconds += 1;
+  }
+
+}
 void Display::scrollVertically(char* text, int speed)
 {
   int y = 0;
@@ -84,6 +174,27 @@ void Display::scrollVertically(char* text, int speed)
   {
     showChars(text, 0, y);
     y-= speed;
+  }
+}
+
+void Display::scrollVerticallyContinuous(char* text, int speed, int _seconds)
+{
+  int y = 0;
+  int screenHeight = getHeight();
+  int seconds = 0;
+  while(seconds < _seconds)
+  {
+    while(y < screenHeight)
+     {
+       showChars(text, 0, y);
+       y+= speed;
+     }
+     while(y > -screenHeight)
+     {
+       showChars(text, 0, y);
+       y-= speed;
+     }
+     seconds += 1;
   }
 }
 
