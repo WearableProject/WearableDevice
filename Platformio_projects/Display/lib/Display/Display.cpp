@@ -1,13 +1,90 @@
 #include <Display.h>
 #include <U8glib.h>
 
-void Display::showChars(char text[])
+
+void Display::showChars(char text[], int x=0, int y=20)
 {
     firstPage();
     do {
-        drawStr( 0, 20, text);
+        drawStr( x, y, text);
     } while( nextPage() );
 
+}
+
+void Display::scrollRight(char* text, int speed)
+{
+  int x = 0;
+  int screenWidth = getWidth();
+  while(x < screenWidth)
+  {
+    showChars(text, x, 20);
+    x+= speed;
+  }
+}
+
+void Display::scrollLeft(char* text, int speed)
+{
+  int x = 0;
+  int screenWidth = getWidth();
+  while(x > -screenWidth)
+  {
+    showChars(text, x, 20);
+    x-= speed;
+  }
+}
+
+void Display::scrollHorizontally(char* text, int speed)
+{
+  int x = 0;
+  int screenWidth = getWidth();
+  while(x < screenWidth)
+  {
+    showChars(text, x, 20);
+    x+= speed;
+  }
+  while(x > -screenWidth)
+  {
+    showChars(text,x,20);
+    x-= speed;
+  }
+}
+
+void Display::scrollUp(char* text, int speed)
+{
+  int y = 0;
+  int screenHeight = getHeight();
+  while(y > -screenHeight)
+  {
+    showChars(text, 0, y);
+    y-= speed;
+  }
+}
+
+void Display::scrollDown(char* text, int speed)
+{
+  int y = 0;
+  int screenHeight = getHeight();
+  while(y < screenHeight)
+  {
+    showChars(text, 0, y);
+    y+= speed;
+  }
+}
+
+void Display::scrollVertically(char* text, int speed)
+{
+  int y = 0;
+  int screenHeight = getHeight();
+  while(y < screenHeight)
+  {
+    showChars(text, 0, y);
+    y+= speed;
+  }
+  while(y > -screenHeight)
+  {
+    showChars(text, 0, y);
+    y-= speed;
+  }
 }
 
 void Display::show(String text)
