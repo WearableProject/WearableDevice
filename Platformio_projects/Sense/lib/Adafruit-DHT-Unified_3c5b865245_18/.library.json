@@ -1,0 +1,41 @@
+{
+    "name": "Adafruit-DHT-Unified", 
+    "repository": {
+        "url": "https://github.com/adafruit/Adafruit_DHT_Unified.git", 
+        "type": "git"
+    }, 
+    "platforms": [
+        "atmelavr"
+    ], 
+    "frameworks": [
+        "arduino"
+    ], 
+    "dependencies": [
+        {
+            "frameworks": "arduino", 
+            "name": "Adafruit-Unified-Sensor"
+        }, 
+        {
+            "frameworks": "arduino", 
+            "name": "Adafruit-DHT -unified"
+        }
+    ], 
+    "version": "3c5b865245", 
+    "authors": [
+        {
+            "maintainer": false, 
+            "name": "Adafruit Industries", 
+            "url": "https://github.com/adafruit", 
+            "email": null
+        }
+    ], 
+    "keywords": [
+        "sensor", 
+        "humidity", 
+        "temperature", 
+        "dht", 
+        "unified"
+    ], 
+    "id": 18, 
+    "description": "Unified sensor library for DHT (DHT11, DHT22 and etc) temperature and humidity sensors"
+}
