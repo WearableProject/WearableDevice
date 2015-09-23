@@ -19,5 +19,5 @@ display.setup();
 
 void loop()
 {
-    display.scrollRightContinuous("Hello NigNig", 2, 3);
+    display.scrollRightContinuous("Hello World", 2, 3);
 }

@@ -9,5 +9,7 @@ public:
   void show(String text);
   void show(float value);
   void show(int32_t value);
+  void scrollHorizontally(String text);
+  void scrollVertically(String text);
   char * floatToString(char * outstr, double val, byte precision, byte widthp);
 };

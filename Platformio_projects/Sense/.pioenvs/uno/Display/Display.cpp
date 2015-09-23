@@ -10,6 +10,23 @@ void Display::showChars(char text[])
 
 }
 
+void Display::scrollHorizontally(String text, int pause)
+{
+  int screenWidth = getWidth();
+  int stringWidth = getStrWidth(text);
+  if(stringWidth > screenWidth)
+  {
+    float parts_f = stringWidth / screenWidth;
+    int parts = round(parts_f);
+    for(int i=0;i<parts;i++)
+    {
+      String toShow = text.substring(i*screenWidth, i*screenWidth + screenWidth);
+      show(toShow);
+      delay(pause);
+    }
+  }
+}
+
 void Display::show(String text)
 {
   char c[text.length()+1];
@@ -32,6 +49,10 @@ void Display::show(float value)
 
 }
 
+void Display::scrollHorizontally(String text)
+{
+
+}
 void Display::setup()
 {
   setFont(u8g_font_unifont);
