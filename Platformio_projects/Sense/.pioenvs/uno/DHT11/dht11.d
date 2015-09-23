@@ -1,7 +1,5 @@
-.pioenvs/uno/Adafruit_DHT_ID19/DHT.o: \
- .pioenvs/uno/Adafruit_DHT_ID19/DHT.cpp \
- .pioenvs/uno/Adafruit_DHT_ID19/DHT.h \
- .pioenvs/uno/FrameworkArduino/Arduino.h \
+.pioenvs/uno/DHT11/dht11.o: .pioenvs/uno/DHT11/dht11.cpp \
+ .pioenvs/uno/DHT11/dht11.h .pioenvs/uno/FrameworkArduino/Arduino.h \
  .pioenvs/uno/FrameworkArduino/binary.h \
  .pioenvs/uno/FrameworkArduino/WCharacter.h \
  .pioenvs/uno/FrameworkArduino/WString.h \

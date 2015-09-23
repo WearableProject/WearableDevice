@@ -12,6 +12,4 @@
  .pioenvs/uno/FrameworkArduinoVariant/pins_arduino.h \
  .pioenvs/uno/Display/Display.h .pioenvs/uno/U8glib/U8glib.h \
  .pioenvs/uno/FrameworkArduino/Print.h .pioenvs/uno/U8glib/utility/u8g.h \
- .pioenvs/uno/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.h \
- .pioenvs/uno/Adafruit_DHT_ID19/DHT.h \
- .pioenvs/uno/Adafruit-DHT-Unified_3c5b865245_18/DHT_U.h
+ .pioenvs/uno/Sense/Sense.h .pioenvs/uno/DHT11/dht11.h

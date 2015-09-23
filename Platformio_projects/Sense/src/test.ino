@@ -1,95 +1,58 @@
-// DHT Temperature & Humidity Sensor
-// Unified Sensor Library Example
-// Written by Tony DiCola for Adafruit Industries
-// Released under an MIT license.
-// Depends on the following Arduino libraries:
-// - Adafruit Unified Sensor Library: https://github.com/adafruit/Adafruit_Sensor
-// - DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library
+//
+//   FILE:  dht11_test1.pde
+// PURPOSE: DHT11 library test sketch for Arduino
+//
+
 
 #include <Display.h>
-#include <Adafruit_Sensor.h>
-#include <DHT.h>
-#include <DHT_U.h>
+#include <Sense.h>
 
-#define DHTPIN            2         // Pin which is connected to the DHT sensor.
+Sense sensor;
+Display display;
 
-// Uncomment the type of sensor in use:
-//#define DHTTYPE           DHT11     // DHT 11
-#define DHTTYPE           DHT22     // DHT 22 (AM2302)
-//#define DHTTYPE           DHT21     // DHT 21 (AM2301)
+#define DHT11PIN 4
 
-// See guide for details on sensor wiring and usage:
-//   https://learn.adafruit.com/dht/overview
-
-DHT_Unified dht(DHTPIN, DHTTYPE);
-
-uint32_t delayMS;
-Display display = Display();
-
-void setup() {
+void setup()
+{
+  Serial.begin(115200);
   display.setup();
-  Serial.begin(9600);
-  // Initialize device.
-  dht.begin();
-  display.show("DHTxx Unified Sensor Example");
-  // Print temperature sensor details.
-  sensor_t sensor;
-  dht.temperature().getSensor(&sensor);
-  display.show("------------------------------------");
-  display.show("Temperature");
-  display.show  ("Sensor:       "); display.show(sensor.name);
-  display.show  ("Driver Ver:   "); display.show(sensor.version);
-  display.show  ("Unique ID:    "); display.show(sensor.sensor_id);
-  display.show  ("Max Value:    "); display.show(sensor.max_value);
-  display.show(" *C");
-  display.show  ("Min Value:    ");
-  display.show(sensor.min_value); display.show(" *C");
-  display.show  ("Resolution:   ");
-  display.show(sensor.resolution);
-  display.show(" *C");
-  display.show("------------------------------------");
-  // Print humidity sensor details.
-  dht.humidity().getSensor(&sensor);
-  display.show("------------------------------------");
-  display.show("Humidity");
-  display.show  ("Sensor:       "); display.show(sensor.name);
-  display.show  ("Driver Ver:   "); display.show(sensor.version);
-  display.show  ("Unique ID:    "); display.show(sensor.sensor_id);
-  display.show  ("Max Value:    "); display.show(sensor.max_value);
-  display.show("%");
-  display.show  ("Min Value:    ");
-  display.show(sensor.min_value);
-  display.show("%");
-  display.show  ("Resolution:   ");
-  display.show(sensor.resolution);
-  display.show("%");
-  display.show("------------------------------------");
-  // Set delay between sensor readings based on sensor details.
-  delayMS = sensor.min_delay / 1000;
+
 }
 
-void loop() {
-  // Delay between measurements.
-  delay(delayMS);
-  // Get temperature event and print its value.
-  sensors_event_t event;
-  dht.temperature().getEvent(&event);
-  if (isnan(event.temperature)) {
-    display.show("Error reading temperature!");
+void loop()
+{
+
+  int chk = sensor.read(DHT11PIN);
+
+  display.show("Read sensor: ");
+  switch (chk)
+  {
+    case DHTLIB_OK:
+		display.show("OK");
+		break;
+    case DHTLIB_ERROR_CHECKSUM:
+		display.show("Checksum error");
+		break;
+    case DHTLIB_ERROR_TIMEOUT:
+		display.show("Time out error");
+		break;
+    default:
+		display.show("Unknown error");
+		break;
   }
-  else {
-    display.show("Temperature: ");
-    display.show(event.temperature);
-    display.show(" *C");
-  }
-  // Get humidity event and print its value.
-  dht.humidity().getEvent(&event);
-  if (isnan(event.relative_humidity)) {
-    display.show("Error reading humidity!");
-  }
-  else {
-    display.show("Humidity: ");
-    display.show(event.relative_humidity);
-    display.show("%");
-  }
+  delay(500);
+  display.scrollLeft("Humidity (%): "+String(sensor.humidity), 2);
+  delay(500);
+  display.scrollLeft("Temperature (°C): "+String(sensor.temperature), 2);
+  delay(500);
+  display.scrollLeft("Temperature (°F): "+String(sensor.Fahrenheit()+2), 2);
+  delay(500);
+  display.scrollLeft("Temperature (°K): "+String(sensor.Kelvin()), 2);
+  delay(500);
+  display.scrollLeft("Dew Point (°C): "+String(sensor.Dewpoint()), 2);
+
+  delay(2000);
 }
+//
+// END OF FILE
+//
