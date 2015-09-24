@@ -6,4 +6,5 @@ public:
   double Kelvin();
   double Fahrenheit();
   double Dewpoint();
+  double lightLevel();
 };

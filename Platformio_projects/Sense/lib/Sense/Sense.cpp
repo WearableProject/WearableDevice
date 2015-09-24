@@ -18,3 +18,10 @@ double Sense::Kelvin()
 {
 	return temperature + 273.15;
 }
+
+double Sense::lightLevel()
+{
+	int pin = A0;
+	double level = analogRead(pin);
+	return level;
+}

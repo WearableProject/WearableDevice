@@ -23,7 +23,7 @@ void loop()
 {
 
   int chk = sensor.read(DHT11PIN);
-
+  double light = sensor.lightLevel();
   display.show("Read sensor: ");
   switch (chk)
   {
@@ -50,7 +50,8 @@ void loop()
   display.scrollLeft("Temperature (°K): "+String(sensor.Kelvin()), 2);
   delay(500);
   display.scrollLeft("Dew Point (°C): "+String(sensor.Dewpoint()), 2);
-
+  delay(500);
+  display.scrollLeft("Light level: "+String(light), 2);
   delay(2000);
 }
 //
