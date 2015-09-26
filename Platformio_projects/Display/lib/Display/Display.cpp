@@ -2,6 +2,7 @@
 #include <U8glib.h>
 
 
+
 void Display::showChars(char text[], int x=0, int y=20)
 {
     firstPage();
@@ -11,27 +12,31 @@ void Display::showChars(char text[], int x=0, int y=20)
 
 }
 
-void Display::scrollRight(char* text, int speed)
+void Display::scrollRight(String text, int speed)
 {
   int x = 0;
   int screenWidth = getWidth();
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(x < screenWidth)
   {
-    showChars(text, x, 20);
+    showChars(c, x, 20);
     x+= speed;
   }
 }
 
-void Display::scrollRightContinuous(char* text, int speed, int _seconds)
+void Display::scrollRightContinuous(String text, int speed, int _seconds)
 {
   int x = 0;
   int screenWidth = getWidth();
   int seconds = 0;
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(seconds < _seconds)
   {
     while(x < screenWidth)
     {
-      showChars(text, x, 20);
+      showChars(c, x, 20);
       x+= speed;
     }
     x = -screenWidth;
@@ -39,27 +44,31 @@ void Display::scrollRightContinuous(char* text, int speed, int _seconds)
   }
 }
 
-void Display::scrollLeft(char* text, int speed)
+void Display::scrollLeft(String text, int speed)
 {
   int x = 0;
   int screenWidth = getWidth();
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(x > -screenWidth)
   {
-    showChars(text, x, 20);
+    showChars(c, x, 20);
     x-= speed;
   }
 }
 
-void Display::scrollLeftContinuous(char* text, int speed, int _seconds)
+void Display::scrollLeftContinuous(String text, int speed, int _seconds)
 {
   int x = 0;
   int screenWidth = getWidth();
   int seconds = 0;
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(seconds < _seconds)
   {
     while(x > -screenWidth)
     {
-      showChars(text, x, 20);
+      showChars(c, x, 20);
       x-= speed;
     }
     seconds += 1;
@@ -68,63 +77,71 @@ void Display::scrollLeftContinuous(char* text, int speed, int _seconds)
 
 }
 
-void Display::scrollHorizontally(char* text, int speed)
+void Display::scrollHorizontally(String text, int speed)
 {
   int x = 0;
   int screenWidth = getWidth();
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(x < screenWidth)
   {
-    showChars(text, x, 20);
+    showChars(c, x, 20);
     x+= speed;
   }
   while(x > -screenWidth)
   {
-    showChars(text,x,20);
+    showChars(c,x,20);
     x-= speed;
   }
 }
 
-void Display::scrollHorizontallyContinuous(char* text, int speed, int _seconds)
+void Display::scrollHorizontallyContinuous(String text, int speed, int _seconds)
 {
   int x = 0;
   int screenWidth = getWidth();
   int seconds = 0;
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(seconds < _seconds)
   {
     while(x < screenWidth)
     {
-      showChars(text, x, 20);
+      showChars(c, x, 20);
       x+= speed;
     }
     while(x > -screenWidth)
     {
-      showChars(text,x,20);
+      showChars(c,x,20);
       x-= speed;
     }
   }
 }
 
-void Display::scrollUp(char* text, int speed)
+void Display::scrollUp(String text, int speed)
 {
   int y = 0;
   int screenHeight = getHeight();
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(y > -screenHeight)
   {
-    showChars(text, 0, y);
+    showChars(c, 0, y);
     y-= speed;
   }
 }
 
-void Display::scrollUpContinuous(char* text, int speed, int _seconds)
+void Display::scrollUpContinuous(String text, int speed, int _seconds)
 {
   int y = 0;
   int screenHeight = getHeight();
   int seconds = 0;
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(seconds > _seconds)
   {
     while(y > -screenHeight)
     {
-      showChars(text, 0, y);
+      showChars(c, 0, y);
       y-= speed;
     }
     seconds += 1;
@@ -133,27 +150,31 @@ void Display::scrollUpContinuous(char* text, int speed, int _seconds)
 
 }
 
-void Display::scrollDown(char* text, int speed)
+void Display::scrollDown(String text, int speed)
 {
   int y = 0;
   int screenHeight = getHeight();
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(y < screenHeight)
   {
-    showChars(text, 0, y);
+    showChars(c, 0, y);
     y+= speed;
   }
 }
 
-void Display::scrollDownContinuous(char* text, int speed, int _seconds)
+void Display::scrollDownContinuous(String text, int speed, int _seconds)
 {
   int y = 0;
   int screenHeight = getHeight();
   int seconds = 0;
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(seconds < _seconds)
   {
     while(y < screenHeight)
     {
-      showChars(text, 0, y);
+      showChars(c, 0, y);
       y+= speed;
     }
     y = -screenHeight;
@@ -161,37 +182,41 @@ void Display::scrollDownContinuous(char* text, int speed, int _seconds)
   }
 
 }
-void Display::scrollVertically(char* text, int speed)
+void Display::scrollVertically(String text, int speed)
 {
   int y = 0;
   int screenHeight = getHeight();
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(y < screenHeight)
   {
-    showChars(text, 0, y);
+    showChars(c, 0, y);
     y+= speed;
   }
   while(y > -screenHeight)
   {
-    showChars(text, 0, y);
+    showChars(c, 0, y);
     y-= speed;
   }
 }
 
-void Display::scrollVerticallyContinuous(char* text, int speed, int _seconds)
+void Display::scrollVerticallyContinuous(String text, int speed, int _seconds)
 {
   int y = 0;
   int screenHeight = getHeight();
   int seconds = 0;
+  char c[text.length()+1];
+  text.toCharArray(c,text.length()+1);
   while(seconds < _seconds)
   {
     while(y < screenHeight)
      {
-       showChars(text, 0, y);
+       showChars(c, 0, y);
        y+= speed;
      }
      while(y > -screenHeight)
      {
-       showChars(text, 0, y);
+       showChars(c, 0, y);
        y-= speed;
      }
      seconds += 1;

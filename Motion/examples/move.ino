@@ -1,9 +1,5 @@
-// FlashBand Demo App
-// Requires: Core, Pearl
-// Optional: Blue, Motion
-// Reads accelerometer values and drops blue LEDs to side point down
-// Sends accelerometer values over Bluetooth LE
-// If Motion not connected, then displays circling ring of Purple LEDs with trail
+// FlashBand Demo for motion
+// Also requires pearl or display to show the data, or else you can use serial instead.
 
 #include <Pearl.h>
 #include <Motion.h>
