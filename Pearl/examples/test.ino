@@ -3,7 +3,7 @@
 // displays circling ring of Purple LEDs with trail
 
 #include <Pearl.h>
-
+#include <FastSPI_LED2.h>
 
 #define threshold 20
 int head=0;  // head of moving snake

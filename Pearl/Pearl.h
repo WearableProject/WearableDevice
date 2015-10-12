@@ -1,8 +1,5 @@
 #include "Arduino.h"
-#include <Wire.h>
-#include <MMA7660.h>
 #include <FastSPI_LED2.h>
-#include <SoftwareSerial.h>
 
 
 class Pearl : public CFastSPI_LED2 {
