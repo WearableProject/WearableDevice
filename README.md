@@ -4,7 +4,7 @@ Each folder is a different add on board.
 
 ## Installation
 
-1. Install the Arduino IDE. You can get that from [here](htttp://arduino.cc)
+1. Install the Arduino IDE. You can get that from [here](http://arduino.cc)
 1. Download this repo as a zip then unzip it, or else clone it.
 1. Open the Arduino IDE, click sketch -> import libraries... -> add zip library
 ![](library_install.png)
