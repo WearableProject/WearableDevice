@@ -6,6 +6,7 @@
 // If Motion not connected, then displays circling ring of Purple LEDs with trail
 
 #include <Display.h>
+#include <U8glib.h>
 
 
 #define threshold 20

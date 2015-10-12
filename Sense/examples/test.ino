@@ -6,6 +6,8 @@
 
 #include <Display.h>
 #include <Sense.h>
+#include <U8glib.h>
+#include <dht11.h>
 
 Sense sensor;
 Display display;

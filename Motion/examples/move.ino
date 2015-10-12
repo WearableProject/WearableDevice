@@ -2,9 +2,10 @@
 // Also requires pearl or display to show the data, or else you can use serial instead.
 
 #include <Pearl.h>
+
 #include <Motion.h>
 #include <Display.h>
-
+#include <MMA7660.h>
 
 Pearl pearl = Pearl();
 
